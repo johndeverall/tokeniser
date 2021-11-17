@@ -1,4 +1,4 @@
-# A Tokeniser
+# A Bank Card Number Tokeniser
 A small application in nodejs to sanitise bank card numbers.
 
 # Build instructions
