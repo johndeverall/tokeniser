@@ -4,16 +4,18 @@ import * as TokeniserService from "./tokeniser.service";
 
 export const tokeniserRouter = express.Router();
 
+const parse = async (req: Request) => {
+    const buffers = []
+
+    for await (const chunk of req) {
+        buffers.push(chunk)
+    }
+    return JSON.parse(Buffer.concat(buffers).toString())
+}
+
 tokeniserRouter.put("/tokenise", async (req: Request, res: Response) => {
     try {
-        const buffers = [];
-
-        for await (const chunk of req) {
-            buffers.push(chunk);
-        }
-        const data = JSON.parse(Buffer.concat(buffers).toString())
-
-        const tokens = await TokeniserService.tokenise(data);
+        const tokens = await TokeniserService.tokenise(await parse(req));
         res.status(201).send(tokens)
     } catch (e) {
         res.status(500).send(e)
@@ -22,14 +24,7 @@ tokeniserRouter.put("/tokenise", async (req: Request, res: Response) => {
 
 tokeniserRouter.get("/detokenise", async (req: Request, res: Response) => {
     try {
-        const buffers = [];
-
-        for await (const chunk of req) {
-            buffers.push(chunk);
-        }
-        const data = JSON.parse(Buffer.concat(buffers).toString())
-
-        const accountNumbers = await TokeniserService.detokenise(data);
+        const accountNumbers = await TokeniserService.detokenise(await parse(req));
         res.status(201).send(accountNumbers)
     } catch (e) {
         res.status(500).send(e)
