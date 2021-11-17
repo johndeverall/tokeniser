@@ -13,8 +13,7 @@ The default port is 3000.
 
 There are two endpoints. 
 
-/tokenise (note the english spelling)
-/detokenise 
+/tokenise (note the english spelling) and /detokenise 
 
 Example tokenise request: 
 
