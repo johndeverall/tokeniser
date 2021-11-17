@@ -32,7 +32,7 @@ GET:
 
 ```
 [
-	"73d75daa1b6bef69fc31d5afb8ad479b",
+  "73d75daa1b6bef69fc31d5afb8ad479b",
   "66632162b552b28989d0ecdc4c05c061"
 ]
 ```
