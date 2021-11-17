@@ -25,7 +25,7 @@ tokeniserRouter.put("/tokenise", async (req: Request, res: Response) => {
 tokeniserRouter.get("/detokenise", async (req: Request, res: Response) => {
     try {
         const accountNumbers = await TokeniserService.detokenise(await parse(req));
-        res.status(201).send(accountNumbers)
+        res.status(200).send(accountNumbers)
     } catch (e) {
         res.status(500).send(e)
     }
