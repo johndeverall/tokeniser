@@ -1,5 +1,5 @@
 # A Bank Card Number Tokeniser
-A small application in nodejs to sanitise and desanitise bank card numbers.
+A small application in nodejs to sanitise and desanitise bank card numbers as part of a job interview process in Wellington NZ.
 
 # Build instructions
 
